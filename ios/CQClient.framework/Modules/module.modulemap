@@ -1,0 +1,19 @@
+framework module CQClient {
+	umbrella header "CQClient.h"
+	export *
+}
+
+framework module CQCryption {
+    header "CGCrypto256.h"
+    export *
+}
+
+framework module CQCocoaAsyncSocket {
+    header "CQGCDAsyncSocket.h"
+    export *
+}
+
+module CQClient.Swift {
+    header "CQClient-Swift.h"
+    requires objc
+}
