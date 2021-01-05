@@ -1,7 +1,8 @@
 import { NativeModules } from 'react-native';
 
 type CallgateType = {
-  multiply(a: number, b: number): Promise<number>;
+  updateAgreementInfoWithAgreeState(agreeState: boolean, appName: string): Promise<number>;
+  setMDN(mdn: string): boolean;
 };
 
 const { Callgate } = NativeModules;

@@ -31,6 +31,8 @@ RCT_EXPORT_METHOD(setMDN:(NSString *)mdn)
 {
     CQClient *client = [[CQClient alloc] init];
     [client setMDN: mdn];
+
+    //FIXME: 성공 실패 결과 리턴 할 것
 }
 
 @end
