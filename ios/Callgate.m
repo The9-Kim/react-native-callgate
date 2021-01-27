@@ -10,11 +10,12 @@ RCT_EXPORT_MODULE()
     return dispatch_get_main_queue();
 }
 
-RCT_EXPORT_METHOD(updateAgreementInfoWithAgreeState:(BOOL)agreeState
-                  appName: (NSString *) appName
-                  resolver: (RCTPromiseResolveBlock) resolve
-                  rejecter: (RCTPromiseRejectBlock) reject) {
-
+RCT_REMAP_METHOD(updateAgreementInfoWithAgreeState,
+                 updateAgreementInfoWithAgreeState:(BOOL)agreeState
+                 appName: (NSString *) appName
+                 resolver: (RCTPromiseResolveBlock) resolve
+                 rejecter: (RCTPromiseRejectBlock) reject) 
+{
     CQClient *client = [[CQClient alloc] init];
     [client updateAgreementInfoWithAgreeState:agreeState appName: appName completion:^(CQClientResultCode resultCode) {
         NSLog(@"resultCode = %ld", (long)resultCode);
@@ -27,7 +28,8 @@ RCT_EXPORT_METHOD(updateAgreementInfoWithAgreeState:(BOOL)agreeState
     }];
 }
 
-RCT_EXPORT_METHOD(setMDN:(NSString *)mdn)
+RCT_REMAP_METHOD(setMDN,
+                 setMDN:(NSString *)mdn)
 {
     CQClient *client = [[CQClient alloc] init];
     [client setMDN: mdn];
