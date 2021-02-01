@@ -10,7 +10,7 @@ RCT_EXPORT_MODULE()
     return dispatch_get_main_queue();
 }
 
-RCT_REMAP_METHOD(updateAgreementInfoWithAgreeState,
+RCT_REMAP_METHOD(updateAgreementInfo,
                  updateAgreementInfoWithAgreeState:(BOOL)agreeState
                  appName: (NSString *) appName
                  resolver: (RCTPromiseResolveBlock) resolve
