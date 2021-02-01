@@ -14,16 +14,17 @@ RCT_REMAP_METHOD(updateAgreementInfoWithAgreeState,
                  updateAgreementInfoWithAgreeState:(BOOL)agreeState
                  appName: (NSString *) appName
                  resolver: (RCTPromiseResolveBlock) resolve
-                 rejecter: (RCTPromiseRejectBlock) reject) 
+                 rejecter: (RCTPromiseRejectBlock) reject)
 {
     CQClient *client = [[CQClient alloc] init];
     [client updateAgreementInfoWithAgreeState:agreeState appName: appName completion:^(CQClientResultCode resultCode) {
         NSLog(@"resultCode = %ld", (long)resultCode);
         long code = (long)resultCode;
+        NSString *codeStr = [NSString stringWithFormat:@"%ld", code];
         if ( code == 0 ) {
-            resolve(code);
+            resolve(codeStr);
         } else {
-            reject(code);
+            reject(codeStr, codeStr, nil);
         }
     }];
 }
